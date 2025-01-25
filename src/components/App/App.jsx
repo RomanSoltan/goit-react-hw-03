@@ -14,18 +14,35 @@ function App() {
 
   const [filter, setFilter] = useState('');
 
+  const addContact = newContact => {
+    setContacts(prev => {
+      return [...prev, newContact];
+    });
+  };
+
+  const deleteContact = contactId => {
+    setContacts(prev => {
+      return prev.filter(item => item.id !== contactId);
+    });
+  };
+
   const visibleContacts = contacts.filter(contact =>
-    contact.name
-      .toLocaleLowerCase()
-      .includes(filter.toLocaleLowerCase().trim()),
+    contact.name.toLowerCase().includes(filter.toLowerCase().trim()),
   );
 
   return (
-    <div className={s.container}>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox value={filter} onFilter={setFilter} />
-      <ContactList contacts={visibleContacts} />
+    <div>
+      <h1 className={s.title}>Phonebook</h1>
+      <ContactForm onAdd={addContact} />
+
+      {!contacts.length ? (
+        <p>No contacts. Please add a new contact</p>
+      ) : (
+        <>
+          <SearchBox value={filter} onFilter={setFilter} />
+          <ContactList contacts={visibleContacts} onDelete={deleteContact} />
+        </>
+      )}
     </div>
   );
 }

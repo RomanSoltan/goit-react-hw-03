@@ -2,7 +2,7 @@ import { HiUser } from 'react-icons/hi';
 import { HiPhone } from 'react-icons/hi';
 import s from './Contact.module.css';
 
-const Contact = ({ name, number }) => {
+const Contact = ({ name, number, id, onDelete }) => {
   return (
     <li className={s.item}>
       <div className={s.contact}>
@@ -14,7 +14,9 @@ const Contact = ({ name, number }) => {
         </p>
       </div>
       <div className={s.btnWrap}>
-        <button className={s.btn}>Delete</button>
+        <button className={s.btn} onClick={() => onDelete(id)}>
+          Delete
+        </button>
       </div>
     </li>
   );
