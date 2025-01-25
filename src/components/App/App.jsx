@@ -36,7 +36,7 @@ function App() {
       <ContactForm onAdd={addContact} />
 
       {!contacts.length ? (
-        <p>No contacts. Please add a new contact</p>
+        <p className={s.descr}>No contacts. Please add a new contact</p>
       ) : (
         <>
           <SearchBox value={filter} onFilter={setFilter} />

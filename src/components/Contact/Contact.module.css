@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 8px;
-  width: 350px;
+  width: 300px;
   border: 1px solid black;
   border-radius: 8px;
   margin-bottom: 16px;
@@ -23,9 +23,10 @@
 .btn {
   min-width: 45px;
   padding: 8px 16px;
+  box-shadow: 2px 2px 2px 2px grey;
   border: 1px solid gray;
   border-radius: 8px;
-  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.4s ease-in-out;
 }
 
 .btn:hover,
