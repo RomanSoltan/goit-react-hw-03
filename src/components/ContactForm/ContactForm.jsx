@@ -25,7 +25,10 @@ const ContactForm = ({ onAdd }) => {
       .required('Write something'),
     number: Yup.string()
       .required('Write something')
-      .matches(PatternPhone, 'Number format ХХХ-ХХ-ХХ'),
+      .matches(
+        PatternPhone,
+        'You are definitely learning JS. Number format ХХХ-ХХ-ХХ',
+      ),
   });
 
   const handleSubmit = (values, actions) => {
